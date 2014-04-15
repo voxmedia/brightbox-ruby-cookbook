@@ -1,3 +1,5 @@
+require 'chef'
+
 name              'brightbox-ruby'
 maintainer        'Mojo Lingo LLC'
 maintainer_email  'ops@mojolingo.com'
@@ -15,11 +17,11 @@ grouping 'brightbox-ruby',
 attribute 'brightbox-ruby/default_action',
  display_name: "Default action for Ruby install",
  description: "Default action for Ruby install",
- choice: [':upgrade', ':install'],
+ choice: (Chef::Version.new(Chef::VERSION) >= Chef::Version.new("11.12")) ? [:upgrade, :install] : [':upgrade', ':install'],
  type: "symbol",
  required: "optional",
  recipes: ['brightbox-ruby'],
- default: ':upgrade'
+ default: (Chef::Version.new(Chef::VERSION) >= Chef::Version.new("11.12")) ? :upgrade : ':upgrade'
 
 attribute 'brightbox-ruby/version',
  display_name: "The version of Ruby to install",
