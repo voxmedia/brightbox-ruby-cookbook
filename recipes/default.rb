@@ -28,6 +28,14 @@ cookbook_file "/etc/gemrc" do
   mode   "0644"
 end
 
+if node['brightbox-ruby']['rubygems_version']
+  execute 'gem update --system' do
+    command "gem update -q --system '#{node['brightbox-ruby']['rubygems_version']}'"
+    environment 'REALLY_GEM_UPDATE_SYSTEM' => '1'
+    not_if "which gem && gem --version | grep -q '#{node['brightbox-ruby']['rubygems_version']}'"
+  end
+end
+
 node['brightbox-ruby']['gems'].each do |gem|
   gem_package gem do
     action node['brightbox-ruby']['default_action']
