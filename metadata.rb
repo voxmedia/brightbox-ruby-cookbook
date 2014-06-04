@@ -47,6 +47,14 @@ attribute 'brightbox-ruby/gems',
  recipes: ['brightbox-ruby'],
  default: ["bundler", "rake", "rubygems-bundler"]
 
+attribute 'brightbox-ruby/rubygems_version',
+ display_name: 'Rubygems version to enforce',
+ description: 'Rubygems version to enforce',
+ type: 'string',
+ required: 'optional',
+ recipes: ['brightbox-ruby'],
+ default: nil
+
 supports 'ubuntu'
 
 depends 'apt'
