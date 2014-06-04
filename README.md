@@ -45,6 +45,6 @@ Other than that, our guidelines very closely match the GemCutter guidelines [her
 
 # License and Maintainer
 
-Maintainer:: Filter Squad (<darcy@filtersquad.com>)
+Maintainer:: Mojo Lingo LLC (<ops@mojolingo.com>)
 
 License:: Apache 2.0
