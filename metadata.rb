@@ -6,7 +6,7 @@ maintainer_email  'ops@mojolingo.com'
 license           'Apache 2.0'
 description       'Handles managing Rubies from brightbox'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           '1.0.0'
+version           '1.1.0'
 
 recipe "brightbox-ruby::default", "Adds the brightbox repository, installs the Ruby package, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment."
 
@@ -17,11 +17,11 @@ grouping 'brightbox-ruby',
 attribute 'brightbox-ruby/default_action',
  display_name: "Default action for Ruby install",
  description: "Default action for Ruby install",
- choice: (Chef::Version.new(Chef::VERSION) >= Chef::Version.new("11.12")) ? [:upgrade, :install] : [':upgrade', ':install'],
+ choice: [:upgrade, :install],
  type: "symbol",
  required: "optional",
  recipes: ['brightbox-ruby'],
- default: (Chef::Version.new(Chef::VERSION) >= Chef::Version.new("11.12")) ? :upgrade : ':upgrade'
+ default: :upgrade
 
 attribute 'brightbox-ruby/version',
  display_name: "The version of Ruby to install",
@@ -34,10 +34,11 @@ attribute 'brightbox-ruby/version',
 attribute 'brightbox-ruby/install_dev_package',
  display_name: "Install the dev package, which provides headers for gem native extensions",
  description: "Install the dev package, which provides headers for gem native extensions",
- choice: ['true', 'false'],
+ choice: [true, false],
  required: "optional",
  recipes: ['brightbox-ruby'],
- default: 'true'
+ default: true,
+ type: "boolean"
 
 attribute 'brightbox-ruby/gems',
  display_name: "Gems to be installed by default",
