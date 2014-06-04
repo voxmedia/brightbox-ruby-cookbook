@@ -8,10 +8,10 @@ update_cookbooks:
 	berks update
 
 foodcritic:
-	thor foodcritic:lint --epic-fail any
+	bundle exec thor foodcritic:lint --epic-fail any
 
 integration:
-	kitchen test -p --destroy=always
+	bundle exec kitchen test -p --destroy=always
 
 docs:
 	bundle exec knife cookbook doc .
