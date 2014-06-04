@@ -1,5 +1,3 @@
-require 'chef'
-
 name              'brightbox-ruby'
 maintainer        'Mojo Lingo LLC'
 maintainer_email  'ops@mojolingo.com'
