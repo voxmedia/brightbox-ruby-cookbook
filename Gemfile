@@ -8,4 +8,4 @@ gem 'thor-foodcritic', '~> 1.1'
 gem 'test-kitchen', '~> 1.2'
 gem 'kitchen-vagrant'
 
-gem 'knife-cookbook-doc', github: 'mojolingo/knife-cookbook-doc'
+gem 'knife-cookbook-doc', github: 'mojolingo/knife-cookbook-doc', branch: 'feature/non-string-attributes'

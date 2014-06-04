@@ -19,10 +19,10 @@ For more documentation on these builds, please see [the official brightbox docum
 # Attributes
 
 * `node['brightbox-ruby']['default_action']` - Default action for Ruby install. Available options: `:upgrade`, `:install`. Defaults to `:upgrade`.
-* `node['brightbox-ruby']['version']` - The version of Ruby to install. Defaults to `2.1`.
+* `node['brightbox-ruby']['version']` - The version of Ruby to install. Defaults to `"2.1"`.
 * `node['brightbox-ruby']['install_dev_package']` - Install the dev package, which provides headers for gem native extensions. Available options: `true`, `false`. Defaults to `true`.
 * `node['brightbox-ruby']['gems']` - Gems to be installed by default. Defaults to `["bundler", "rake", "rubygems-bundler"]`.
-* `node['brightbox-ruby']['rubygems_version']` - The version of rubygems to enforce, or nil to use the default packaged version. Defaults to ``.
+* `node['brightbox-ruby']['rubygems_version']` - The version of rubygems to enforce, or nil to use the default packaged version. Defaults to `nil`.
 
 # Recipes
 
