@@ -1,4 +1,6 @@
 # master
+
+# 1.1.1
   * Remove loading of chef in metadata.rb
   * Test on Ubuntu 14.04
 
