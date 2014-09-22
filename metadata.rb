@@ -4,7 +4,7 @@ maintainer_email  'ops@mojolingo.com'
 license           'Apache 2.0'
 description       'Handles managing Rubies from brightbox'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           '1.1.1'
+version           '1.2.0'
 
 recipe "brightbox-ruby::default", "Adds the brightbox repository, installs the Ruby package, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment."
 
@@ -53,6 +53,14 @@ attribute 'brightbox-ruby/rubygems_version',
  required: 'optional',
  recipes: ['brightbox-ruby'],
  default: nil
+
+attribute 'brightbox-ruby/install_ruby_switch',
+ display_name: 'Wether of not to install ruby_switch',
+ description: 'Wether of not to install ruby_switch. Defaults to false on recent versions of Ubuntu (>= 14.x) since ruby_switch has been deprecated.',
+ type: 'boolean',
+ required: 'optional',
+ recipes: ['brightbox-ruby'],
+ default: false
 
 supports 'ubuntu'
 
