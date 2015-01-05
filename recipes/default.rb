@@ -1,5 +1,22 @@
 include_recipe "apt"
 
+if node['brightbox-ruby']['use_experimental']
+  apt_repository "brightbox-ruby-ng-experimental-#{node['lsb']['codename']}" do
+    uri          "http://ppa.launchpad.net/brightbox/ruby-ng-experimental/ubuntu"
+    distribution node['lsb']['codename']
+    components   ["main"]
+    keyserver    "keyserver.ubuntu.com"
+    key          "C3173AA6"
+    action       :add
+  end
+
+  apt_preference 'lower_experimental' do
+    glob         '*'
+    pin          'release o=LP-PPA-brightbox-ruby-ng-experimental'
+    pin_priority '400'
+  end
+end
+
 apt_repository "brightbox-ruby-ng-#{node['lsb']['codename']}" do
   uri          "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu"
   distribution node['lsb']['codename']

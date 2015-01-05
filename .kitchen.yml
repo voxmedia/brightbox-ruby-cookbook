@@ -13,6 +13,10 @@ suites:
   - name: default
     run_list:
       - recipe[brightbox-ruby]
+    attributes:
+      brightbox-ruby:
+        use_experimental: true
+        version: 2.2
   - name: rubygems
     run_list:
       - recipe[brightbox-ruby]
